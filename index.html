@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>要点くん - やさしい会話要約・読解サポーター</title>
+    
+    <!-- PWA Manifest & Colors -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#FFD100" />
+    
+    <!-- Early Cleanup for Preview cache reliability -->
+    <script>
+      try {
+        if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            if (registrations && registrations.length) {
+              for (var i = 0; i < registrations.length; i++) {
+                registrations[i].unregister().catch(function() {});
+              }
+            }
+          }).catch(function() {});
+        }
+        if (typeof window !== 'undefined' && 'caches' in window) {
+          caches.keys().then(function(names) {
+            if (names && names.length) {
+              for (var i = 0; i < names.length; i++) {
+                caches.delete(names[i]).catch(function() {});
+              }
+            }
+          }).catch(function() {});
+        }
+      } catch (e) {}
+    </script>
+    
+    <!-- iOS support (iPhone/iPad installability details) -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="要点くん" />
+    <link rel="apple-touch-icon" href="/icon.jpg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

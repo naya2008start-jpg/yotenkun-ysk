@@ -1,0 +1,6 @@
+{
+  "name": "要点くん",
+  "description": "高次脳機能障害の患者様向けに、解読のむつかしい書類や会話をカメラでのスキャンやマイク入力により、簡潔にポイントをまとめ、分かりやすい言葉に置き換えて音声で読み上げる要約支援アプリです。",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
